@@ -1,11 +1,11 @@
 {
-    "name": "open_work_flutter",
-    "short_name": "open_work_flutter",
+    "name": "Open Work Flutter",
+    "short_name": "Open Work Flutter",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#2F3C7E",
+    "theme_color": "#2F3C7E",
+    "description": "Note work",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
