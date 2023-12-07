@@ -31,28 +31,53 @@
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>Open Work Flutter</title>
+
   <link rel="manifest" href="manifest.json">
+
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/loading.css">
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "1920029768";
+    const serviceWorkerVersion = "1094366932";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
 </head>
 
 <body>
+  <!-- Page loading animation -->
+  <div id="loading-root">
+    <h1 id="loading-text"></h1>
+  </div>
+
+  <script>
+    const loadingRoot = document.querySelector('#loading-root');
+
+    const loadingText = document.querySelector('#loading-text');
+
+    function setLoadingText(text) {
+      loadingText.textContent = text;
+    }
+  </script>
+
   <script>
     window.addEventListener('load', function (ev) {
+      setLoadingText("Loading entrypoint...");
+
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
-        onEntrypointLoaded: function (engineInitializer) {
-          engineInitializer.initializeEngine().then(function (appRunner) {
-            appRunner.runApp();
-          });
+        onEntrypointLoaded: async function (engineInitializer) {
+          setLoadingText("Initializing engine...");
+
+          let appRunner = await engineInitializer.initializeEngine();
+
+          setLoadingText("Running app...");
+
+          await appRunner.runApp();
         }
       });
     });

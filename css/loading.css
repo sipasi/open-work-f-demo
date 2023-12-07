@@ -1,0 +1,16 @@
+#loading-root {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#loading-text {
+    color: #4D4C7D;
+    font-weight: 900;
+    width: auto;
+    margin: auto;
+}
