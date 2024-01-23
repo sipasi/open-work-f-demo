@@ -28226,8 +28226,8 @@ s.push(A.aT0(n,"next",m))}}k=A.cQ(0,null,s.length,null,null)
 A.aMU(s,new A.arB(),A.bcQ(A.bdW(),t.N),B.m2,0,k)
 return s},
 aT0(a,b,c){return new A.uE(a.a,b,new A.Sx(A.aRk(a.b,c.b)),new A.Sx(A.aRk(a.c,c.c)))},
-aRk(a,b){if(b===0)return 1/0
-return(a-b)/b*100},
+aRk(a,b){if(b===0)return 0
+return Math.ceil((a-b)/b*100)},
 arC:function arC(){},
 arE:function arE(){},
 arF:function arF(){},
