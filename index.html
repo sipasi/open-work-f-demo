@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <!--
+  <head>
+    <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
 
@@ -15,73 +14,73 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="/open-work-f-demo/">
+    <base href="/open-work-f-demo/" />
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="description" content="A new Flutter project." />
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="open_work_flutter">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="open_work_flutter" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
 
-  <title>Open Work Flutter</title>
+    <title>Open Work Flutter</title>
 
-  <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json" />
 
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/loading.css" />
 
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "3799707350";
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
-</head>
+    <script>
+      // The value below is injected by flutter build, do not touch.
+      const serviceWorkerVersion = "3104677597";
+    </script>
+    <!-- This script adds the flutter initialization JS code -->
+    <script src="flutter.js" defer></script>
+  </head>
 
-<body>
-  <!-- Page loading animation -->
-  <div id="loading-root">
-    <b id="loading-text"> </b>
-  </div>
+  <body>
+    <!-- Page loading animation -->
+    <div id="loading-root">
+      <b id="loading-text"> </b>
+    </div>
 
-  <script>
-    const loadingRoot = document.querySelector('#loading-root');
+    <script>
+      const loadingRoot = document.querySelector("#loading-root");
 
-    const loadingText = document.querySelector('#loading-text');
+      const loadingText = document.querySelector("#loading-text");
 
-    function setLoadingText(text) {
-      loadingText.textContent = text;
-    }
-  </script>
+      function setLoadingText(text) {
+        loadingText.textContent = text;
+      }
+    </script>
 
-  <script>
-    window.addEventListener('load', function (ev) {
-      setLoadingText("Loading entrypoint...");
+    <script>
+      window.addEventListener("load", function (ev) {
+        setLoadingText("Loading entrypoint...");
 
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: async function (engineInitializer) {
-          setLoadingText("Initializing engine...");
+        // Download main.dart.js
+        _flutter.loader.loadEntrypoint({
+          serviceWorker: {
+            serviceWorkerUrl: "./service-worker.js",
+            serviceWorkerVersion: serviceWorkerVersion,
+          },
+          onEntrypointLoaded: async function (engineInitializer) {
+            setLoadingText("Initializing engine...");
 
-          let appRunner = await engineInitializer.initializeEngine();
+            let appRunner = await engineInitializer.initializeEngine();
 
-          setLoadingText("Running app...");
+            setLoadingText("Running app...");
 
-          await appRunner.runApp();
-        }
+            await appRunner.runApp();
+          },
+        });
       });
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
